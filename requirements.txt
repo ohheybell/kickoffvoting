@@ -1,0 +1,4 @@
+flask
+-U flask-cors
+pusher
+simplejson

@@ -1,13 +1,19 @@
-FROM ohheybelldockerrepo:latestohheybellimage
-  
-COPY . /kickoffvotingrepo
+FROM python:3
 
-RUN virtualenv .venv
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN pip install virtualenv
+RUN virtual .venv
 RUN source .venv/bin/activate
-RUN pip install flask
-RUN pip install pusher
-RUN pip install simple json
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-CMD python3 dbsetup.py
-CMD flask run
+
+
+EXPOSE 5000
+
+CMD ["python","dbsetup.py"]
+CMD ["flask run"]
 
