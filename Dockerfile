@@ -10,6 +10,11 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 #COPY dbsetup.py .
-CMD ["python", "dbsetup.py"]
+#CMD ["python", "dbsetup.py"]
 #CMD ["export", "FLASK_ENV=development"]
-CMD ["flask", "run"]
+#CMD ["flask", "run"]
+
+ENTRYPOINT ["python"]
+CMD ["dbsetup.py"]
+CMD ["app.py"]
+
