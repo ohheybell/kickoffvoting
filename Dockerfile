@@ -1,19 +1,15 @@
-FROM python:3
+FROM ubuntu:18.04
+RUN apt-get update && apt-get install \ 
+  -y --no-install-recommends python3 python3-virtualenv
 
-WORKDIR /usr/src/app
+RUN python3 -m virtualenv --python=/usr/bin/python3 /opt/venv
 
-COPY . .
-
-RUN pip install virtualenv
-RUN virtual .venv
-RUN source .venv/bin/activate
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
-
-
+COPY requirements.txt .
+RUN . /opt/venv/bin/activate && pip install -r requirements.txt
 
 EXPOSE 5000
 
-CMD ["python","dbsetup.py"]
-CMD ["flask run"]
-
+COPY dbsetup.py .
+CMD . /opt/venv/bin/activate && exec python3 dbsetup.py
+CMD . /opt/venv/bin/activate && exec export FLASK_ENV=development
+CMD . /opt/venv/bin/activate && exec flask run
