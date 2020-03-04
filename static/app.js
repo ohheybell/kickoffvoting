@@ -1,6 +1,6 @@
 
 var pollMembers = document.querySelectorAll('.poll-member')
-var members = ['Bocchie', 'Alec Baldwin as Trump', 'Lisa Vanderpump', 'Hytham']
+var members = ['Bocchi', 'Alec Baldwin as Trump', 'Lisa Vanderpump', 'Hytham']
 
   // Sets up click events for all the cards on the DOM
 pollMembers.forEach((pollMember, index) => {

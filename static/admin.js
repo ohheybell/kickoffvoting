@@ -1,5 +1,5 @@
 var dataPoints = [
-    { label: "Bocchie", y: 0 },
+    { label: "Bocchi", y: 0 },
     { label: "Alec Baldwin as Trump", y: 0 },
     { label: "Lisa Vanderpump", y: 0 },
     { label: "Hytham", y: 0 },

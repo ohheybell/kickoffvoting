@@ -10,4 +10,5 @@ docker rmi -f $container_name
 # Build container
 docker image build -t $container_name .
 # Run container
-docker run --rm -ti -p 5000:5000 --name $container_name $container_name 
+#docker run --rm -ti -p 5000:5000 --name $container_name $container_name
+docker run --rm -ti -p 5000:5000 --name $container_name $container_name /bin/bash

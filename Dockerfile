@@ -1,7 +1,6 @@
-FROM python:3
+FROM python:latest
 
 COPY . /app
-
 WORKDIR /app
 
 #RUN pip install --upgrade pip

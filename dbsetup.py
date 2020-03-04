@@ -1,3 +1,4 @@
+#!/usr/local/bin/python
 import sqlite3, json
 from sqlite3 import Error
  
@@ -47,7 +48,7 @@ def main():
 
     # create items table
     create_table(conn)
-    create_item(conn, ["Bocchie"])
+    create_item(conn, ["Bocchi"])
     create_item(conn, ["Alec Baldwin as Trump"])
     create_item(conn, ["Lisa Vanderpump"])
     create_item(conn, ["Hytham"])
