@@ -13,26 +13,26 @@ conn = create_connection(database)
 c = conn.cursor()
 
 def main():
-	global conn, c
+    global conn, c
 
 @app.route('/')
 def index():
-	return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/admin')
 def admin():
-	return render_template('admin.html')
+    return render_template('admin.html')
 
 @app.route('/vote', methods=['POST'])
 def vote():
-	data = simplejson.loads(request.data)
-	update_item(c, [data['member']])
-	output = select_all_items(c, [data['member']])
-	pusher.trigger(u'poll', u'vote', output)
-	return request.data
+    data = simplejson.loads(request.data)
+    update_item(c, [data['member']])
+    output = select_all_items(c, [data['member']])
+    pusher.trigger(u'poll', u'vote', output)
+    return request.data
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-# 	main()
+    main()
 #   app.run(debug=True)
     

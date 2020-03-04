@@ -5,7 +5,7 @@ def create_connection(database):
     try:
         conn = sqlite3.connect(database, isolation_level=None, check_same_thread = False)
         conn.row_factory = lambda c, r: dict(zip([col[0] for col in c.description], r))
-        
+
         return conn
     except Error as e:
         print(e)
@@ -19,11 +19,11 @@ def create_table(c):
         ); 
     """
     c.execute(sql)
-
-def create_item(c, item):
+    
+def create_item(c, items):
     sql = ''' INSERT INTO items(name)
               VALUES (?) '''
-    c.execute(sql, item)
+    c.execute(sql, items)
 
 def update_item(c, item):
     sql = ''' UPDATE items
@@ -51,7 +51,8 @@ def main():
     create_item(conn, ["Alec Baldwin as Trump"])
     create_item(conn, ["Lisa Vanderpump"])
     create_item(conn, ["Hytham"])
-    print("Connection established!")
+    print("TABLE CREATED!!")
+    
 
 if __name__ == '__main__':
     main()
