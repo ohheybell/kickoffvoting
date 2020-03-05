@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sqlite3, json
 from sqlite3 import Error
  
